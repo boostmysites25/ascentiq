@@ -40,26 +40,6 @@ const BlogDetail = () => {
     });
   };
 
-  const shareUrl = window.location.href;
-  const shareTitle =
-    blogData?.blog?.title || blogData?.title || "Check out this blog post";
-
-  const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      shareUrl
-    )}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      shareUrl
-    )}&text=${encodeURIComponent(shareTitle)}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-      shareUrl
-    )}`,
-  };
-
-  const handleShare = (platform) => {
-    window.open(shareLinks[platform], "_blank", "width=600,height=400");
-  };
-
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -184,29 +164,6 @@ const BlogDetail = () => {
                   {blog.excerpt}
                 </p>
               )}
-
-              {/* Share buttons */}
-              <div className="flex items-center gap-4">
-                <span className="text-white/60">Share:</span>
-                <button
-                  onClick={() => handleShare("facebook")}
-                  className="p-2 bg-secondary text-background rounded-full hover:bg-white hover:text-background transition-all duration-300"
-                >
-                  <Facebook size={16} />
-                </button>
-                <button
-                  onClick={() => handleShare("twitter")}
-                  className="p-2 bg-secondary text-background rounded-full hover:bg-white hover:text-background transition-all duration-300"
-                >
-                  <Twitter size={16} />
-                </button>
-                <button
-                  onClick={() => handleShare("linkedin")}
-                  className="p-2 bg-secondary text-background rounded-full hover:bg-white hover:text-background transition-all duration-300"
-                >
-                  <Linkedin size={16} />
-                </button>
-              </div>
             </div>
           </div>
         </section>
@@ -249,7 +206,10 @@ const BlogDetail = () => {
                       "--tw-prose-td-borders": "rgb(230 176 43 / 0.1)",
                     }}
                   >
-                    <div dangerouslySetInnerHTML={{ __html: blog.content }}  className="reset-html"/>
+                    <div
+                      dangerouslySetInnerHTML={{ __html: blog.content }}
+                      className="reset-html"
+                    />
                   </div>
                 ) : (
                   <div className="text-white/80 leading-relaxed text-lg">
