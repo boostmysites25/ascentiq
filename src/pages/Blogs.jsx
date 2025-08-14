@@ -36,7 +36,7 @@ const Blogs = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center ">
         <div className="text-center">
           <h2 className="heading-2 text-secondary mb-4">Error Loading Blogs</h2>
           <p className="desc">Please try again later.</p>
@@ -58,7 +58,7 @@ const Blogs = () => {
       <WebsiteHeader />
       <PageBanner title="Our Blog" desc="Insights, Trends & Expert Perspectives" />
 
-      <section className="py-16 bg-background">
+      <section className="py-16 ">
         <div className="wrapper">
           {blogs.length === 0 ? (
             <div className="text-center py-16">
