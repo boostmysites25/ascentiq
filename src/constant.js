@@ -3,6 +3,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import Blogs from "./pages/Blogs";
 import {
   FaRobot,
   FaChartLine,
@@ -61,6 +62,11 @@ export const routes = [
     path: "/services",
     name: "Services",
     element: <Services />,
+  },
+  {
+    path: "/blogs",
+    name: "Blogs",
+    element: <Blogs />,
   },
   {
     path: "/contact-us",
